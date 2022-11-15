@@ -43,12 +43,14 @@ public class PlayerMovement : MonoBehaviour
                 _rb.AddForce(transform.forward.normalized * -1 * forwardBackwardMovement * Time.deltaTime);
 		}
         if (Input.GetKey(KeyCode.A))
-		{
-            _rb.AddForce(transform.right.normalized * -1 * sideMovement * Time.deltaTime);
+        {
+            if (!movingMax)
+                _rb.AddForce(transform.right.normalized * -1 * sideMovement * Time.deltaTime);
 		}
         if (Input.GetKey(KeyCode.D))
-		{
-            _rb.AddForce(transform.right.normalized * sideMovement * Time.deltaTime);
+        {
+            if (!movingMax)
+                _rb.AddForce(transform.right.normalized * sideMovement * Time.deltaTime);
 		}
 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + (mouseSensitivity * Input.GetAxis("Mouse X")), transform.rotation.eulerAngles.z);

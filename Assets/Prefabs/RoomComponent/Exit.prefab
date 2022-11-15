@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4684482300693082139}
   - component: {fileID: 2260376590341874325}
   - component: {fileID: 7617699464907920982}
-  - component: {fileID: 3315286019584258000}
   m_Layer: 0
   m_Name: ArrowBase
   m_TagString: Untagged
@@ -29,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.539, z: 0}
   m_LocalScale: {x: 0.80648, y: 0.05, z: 0.085414864}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1368103245553075867}
   m_RootOrder: 0
@@ -52,6 +52,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -82,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3315286019584258000
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4590891599657021464}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4899349989146740221
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +94,6 @@ GameObject:
   - component: {fileID: 207289736165586703}
   - component: {fileID: 5547655466067464081}
   - component: {fileID: 4585561872216126416}
-  - component: {fileID: 5618114146844152762}
   m_Layer: 0
   m_Name: ArrowLeft
   m_TagString: Untagged
@@ -124,6 +111,7 @@ Transform:
   m_LocalRotation: {x: -0.035785437, y: 0.24548115, z: -0.0078742895, w: 0.9687087}
   m_LocalPosition: {x: 0.245, y: 0.544, z: 0.08}
   m_LocalScale: {x: 0.3017848, y: 0.05, z: 0.085414864}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1368103245553075867}
   m_RootOrder: 1
@@ -147,6 +135,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -177,19 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5618114146844152762
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4899349989146740221}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6254852878509938887
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +177,8 @@ GameObject:
   - component: {fileID: 1368103245553075867}
   - component: {fileID: 6186660156341006432}
   - component: {fileID: 7272529009188821212}
-  - component: {fileID: 7799508786297784611}
+  - component: {fileID: 1540712971745661238}
+  - component: {fileID: -8773203902448443521}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -219,6 +196,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4684482300693082139}
   - {fileID: 207289736165586703}
@@ -245,6 +223,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -275,19 +254,38 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7799508786297784611
-SphereCollider:
+--- !u!114 &1540712971745661238
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6254852878509938887}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_StartPoint: {x: -0.1, y: 0, z: 0}
+  m_EndPoint: {x: 0.1, y: 0, z: 0}
+  m_Width: 0
+  m_CostModifier: -1
+  m_Bidirectional: 1
+  m_AutoUpdatePosition: 0
+  m_Area: 0
+--- !u!114 &-8773203902448443521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6254852878509938887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a743f8f46d30fa42afeb3fb8456ad17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6919065851859354448
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +297,6 @@ GameObject:
   - component: {fileID: 5067572151428569350}
   - component: {fileID: 6709555744346355528}
   - component: {fileID: 2025222964218133628}
-  - component: {fileID: 2953401661352703383}
   m_Layer: 0
   m_Name: ArrowRight
   m_TagString: Untagged
@@ -317,6 +314,7 @@ Transform:
   m_LocalRotation: {x: -0.027694646, y: -0.24652694, z: -0.023996122, w: 0.968443}
   m_LocalPosition: {x: 0.249, y: 0.539, z: -0.078}
   m_LocalScale: {x: 0.3017848, y: 0.05, z: 0.085414864}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1368103245553075867}
   m_RootOrder: 2
@@ -340,6 +338,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -370,16 +369,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2953401661352703383
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6919065851859354448}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

@@ -7,7 +7,6 @@ public class DungeonCreator : MonoBehaviour
     public GameObject endPadPrefab;
     public List<Room> validRooms;
     public int numberOfRooms = 5;
-    public bool hideAllGeneratorPoints;
     public bool allowRepeatRooms;
 
     private float _generatedRooms = 0;
@@ -61,13 +60,6 @@ public class DungeonCreator : MonoBehaviour
         
         Room instRoom = Instantiate(r);
 
-        // Hide connect points
-        if (hideAllGeneratorPoints)
-        {
-            foreach (Transform tr in instRoom.exitsOrEntries)
-                tr.gameObject.SetActive(false);
-        }
-
         int randInt = Random.Range(0, instRoom.exitsOrEntries.Count);
         Transform connectionPoint = instRoom.exitsOrEntries[randInt];
         instRoom.exitsOrEntries.Remove(connectionPoint);
@@ -77,14 +69,9 @@ public class DungeonCreator : MonoBehaviour
         instRoom.transform.position += t.position - connectionPoint.position;
 
 
-        connectionPoint.gameObject.SetActive(false);
-        t.gameObject.SetActive(false);
-
-
         bool collides = Physics.CheckBox(instRoom.transform.position, collider.size/2, orientation: instRoom.transform.rotation, layermask: Physics.DefaultRaycastLayers, queryTriggerInteraction:QueryTriggerInteraction.Collide);
         if (collides)
 		{
-            print(instRoom.ToString() + " " + _generatedRooms);
             Destroy(instRoom.gameObject);
             return;
         }
@@ -93,18 +80,12 @@ public class DungeonCreator : MonoBehaviour
         _remainingExits.AddRange(instRoom.exitsOrEntries);
 
         SetLayerRecursively(instRoom.gameObject, 0);
+        instRoom.Initialize();
     }
 
     public void GenerateRoomConnnectedToPoint(Room r, Vector3 p)
     {
         Room instRoom = Instantiate(r);
-
-        // Hide connect points
-        if (hideAllGeneratorPoints)
-        {
-            foreach (Transform tr in instRoom.exitsOrEntries)
-                tr.gameObject.SetActive(false);
-        }
 
         int randInt = Random.Range(0, instRoom.exitsOrEntries.Count);
 
@@ -117,6 +98,7 @@ public class DungeonCreator : MonoBehaviour
         _remainingExits.AddRange(instRoom.exitsOrEntries);
 
         SetLayerRecursively(instRoom.gameObject, 0);
+        instRoom.Initialize();
     }
 
     private Room GetRandomRoomAndRemoveIfApplicable()
